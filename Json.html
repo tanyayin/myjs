@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>break和continue</title>
+</head>
+<style>
+</style>
+<script>
+var json={a: 12, b: 36, c:7};
+var arr=[7, 5 ,25];
+/*
+alert(json['a']); //json 下标是个字符串
+alert(arr[1]);//arr 下标是个数字
+
+alert(json.length);//undifind json没有length
+alert(arr.length);
+
+//循环
+for (var i=0; i<arr.length;i++){
+	alert('第'+i+'东西'+arr[i]);
+};*/
+for(var i in arr){
+	alert('第'+i+'东西'+arr[i]); 
+}
+for(var i in json){
+	alert('第'+i+'东西'+json[i]); //for in 适用于json循环
+}
+
+</script>
+
+
+<body>
+</body>
+</html>

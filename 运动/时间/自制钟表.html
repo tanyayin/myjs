@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+</head>
+<style>
+div{width:500px;background:#000;color:#f3f930; font-size:110px;margin:0 auto;padding-top:50px; font-weight:bold;}
+div img {width:50px;}
+</style>
+<script>
+//Date 
+//var time = new date()创建对象
+//getFullYear()   年
+//getMonth()  月  alert(oDate.getMonth()-1)
+//getDate  日
+//getDay() 星期
+
+function toDou(n){//数字补零
+	if(n<10){
+		return '0'+n
+	}
+	else{
+		return ''+n;
+	};
+};
+window.onload=function(){
+	var oSpan=document.getElementsByTagName('img');
+	
+    function tick(){ 
+	 var oDate=new Date();
+	 var str=toDou(oDate.getHours()) + toDou(oDate.getMinutes()) + toDou(oDate.getSeconds());//oDate.getHours() + oDate.getMinutes() + oDate.getSeconds() 会自动求和
+	for(var i=0;i<oSpan.length;i++){
+    oSpan[i].src='img/'+str.charAt[i]+'.png';//charAt()可以获取字符串的某一位，全兼容
+	};
+};
+ setInterval(tick,1000);
+ tick();
+
+};
+</script>
+<body style=" background:#000">
+<div>
+<img src="img/0.png"/><img src="img/0.png"/>:<img src="img/0.png"/><img src="img/0.png"/>:<img src="img/0.png"/><img src="img/0.png"/>
+</div>
+</body>
+</html>

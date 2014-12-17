@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>选项卡</title>
+<style>
+#div1 .active {background:#C33;}
+#div1 div {width:300px;height:200px;background:#CCC; border:1px solid #306; display:none;}
+</style>
+<script>
+window.onload=function (){
+	var obn=document.getElementById('div1');
+	var odv=obn.getElementsByTagName('input');
+	var odv2=obn.getElementsByTagName('div');
+	
+	for(var i=0; i<odv.length;i++){//第一次循环所有的按钮；
+		odv[i].index=i;//给每个按钮设置序列
+		odv[i].onclick=function(){//给每一个按钮添加点击事件；
+			for (var i=0; i<odv.length;i++){//第二次循环设置按钮；
+				odv[i].className='';//所有的按钮样式设为空；
+				odv2[i].style.display='none'; //把每个div隐藏
+			};
+			this.className='active';//给每一个按钮添加样式
+			odv2[this.index].style.display='block';//让div显示
+		};
+	};
+};
+</script>
+
+
+
+</head>
+<body>
+<div id="div1">
+<input class="active" type="button" value="教育"/>
+<input type="button" value="教育2"/>
+<input type="button" value="教育3"/>
+<input type="button" value="教育4"/>
+<div style="display:block" >111111</div>
+<div>222222</div>
+<div>33333</div>
+<div>444444</div>
+
+</div>
+
+
+
+
+</body>
+</html>

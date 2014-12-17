@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+</head>
+<style>
+</style>
+<script>
+function css(obj, name,value){
+	if(arguments.length==2){
+		return obj.style[name];//获取第一个元素里的第位置二个样式 如.css (Odiv, 'width', '200px');
+	}
+	else{
+		obj.style[name]=value;//修改第一个元素里的第二个位置上的样式的值，也就是位置三上的数值
+	};
+};
+window.onload=function(){
+	var oDiv=document.getElementById('div1');
+	//alert (css(oDiv, 'width'));
+    css(oDiv, 'width' ,'500px');
+	
+}
+
+</script>
+
+
+<body>
+<div id="div1" style="width:200px; height:300px; background:#993; border:1px solid #000"></div>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<link rel="stylesheet" href="css/css.css">
+<script src="js/move.js"></script>
+<script>
+  function getByClass(oParent, sClass){
+	var aEle=oParent.getElementsByTagName('*');    //封装好的类选择
+	var aResult=[];
+	for(var i=0;i<aEle.length;i++){
+		if(aEle[i].className==sClass){
+			aResult.push(aEle[i]);
+			}
+		}
+		return aResult;
+	  }
+	  
+window.onload=function(){
+	var oDiv=document.getElementById('huan');
+	var oBtprev=getByClass(oDiv, 'lef')[0];
+	var oBtnext=getByClass(oDiv, 'right')[0];
+	var oAiLef=getByClass(oDiv, 'ai')[0];
+	var oAbRit=getByClass(oDiv, 'ab')[0];
+	var oSmDiv=getByClass(oDiv, 'hd_bottom')[0];
+	var oSmUl=oSmDiv.getElementsByTagName('ul')[0];
+	var aSm=oSmDiv.getElementsByTagName('li');
+	var oBigUl=getByClass(oDiv, 'hd_top')[0];
+	var aBig=oBigUl.getElementsByTagName('li');
+	var nZIndex=2;  //为大图切换准备
+	var now=0;
+	oSmUl.style.width=aSm[0].offsetWidth*aSm.length+'px';
+	
+	//左右按钮显出
+	oBtprev.onmouseover=oAiLef.onmouseover=function(){ //因为按钮层级较高，所以同样给按钮也加个移入移除
+		startMove(oBtprev,'opacity', 100);
+		}
+	oBtprev.onmouseout=oAiLef.onmouseout=function(){
+		startMove(oBtprev,'opacity',0);
+		}
+	oBtnext.onmouseover=oAbRit.onmouseover=function(){
+		startMove(oBtnext,'opacity', 100);
+		}
+	oBtnext.onmouseout=oAbRit.onmouseout=function(){
+		startMove(oBtnext,'opacity',0);
+		}
+	 
+
+    //大图切换
+	for(var i=0;i<aSm.length;i++){
+		aSm[i].index=i;
+		aSm[i].onclick=function()
+		{
+			if(this.index==now)return;//防止多次点击重复加载，当前序号就等于当前，不执行！当前为0；
+			now=this.index;//否则继续加载
+			/*aBig[this.index].style.zIndex=nZIndex++;
+			for( var i=0;i<aSm.length;i++){
+				startMove(aSm[i],'opacity',60);
+				}
+			startMove(this,'opacity',100);
+			aBig[this.index].style.height=0;
+			startMove(aBig[this.index],'height',600);*////封装之前
+			tab();
+			
+		}
+		///小图半透明
+		
+		aSm[i].onmouseover=function(){
+		  startMove(this,'opacity',100);
+			}
+		aSm[i].onmouseout=function(){
+			if(this.index!=now){
+		  startMove(this,'opacity',60);
+			}
+			}
+		}
+//////////////////////	按钮切换
+  function tab(){
+	  aBig[now].style.zIndex=nZIndex++;
+			for( var i=0;i<aSm.length;i++){
+				startMove(aSm[i],'opacity',60);
+				}
+			startMove(aSm[now],'opacity',100);
+			aBig[now].style.height=0;
+			startMove(aBig[now],'height',600);
+			////小图跟着大图左右滚动
+			if(now<=3){
+			startMove(oSmUl,'left',0);
+			}else if(now==aSm.length-1)
+			{
+				startMove(oSmUl,'left',-(now-4)*aSm[0].offsetWidth);
+				}else{
+			startMove(oSmUl,'left',-(now-3)*aSm[0].offsetWidth);
+				}
+	  }
+   
+    oBtprev.onclick=function(){
+		now--;
+		if(now==-1){
+			now=aSm.length-1;
+			}
+			tab();
+	   }	
+		
+	oBtnext.onclick=function(){
+		now++;
+		if(now==aSm.length){
+			now=0;
+			}
+			tab();
+	  }		
+	  
+	 var yd=setInterval(oBtnext.onclick,2000);
+	 oDiv.onmouseover=function(){
+		 clearInterval(yd);
+		 } 
+	 oDiv.onmouseout=function(){
+		  yd=setInterval(oBtnext.onclick,2000);
+		 }
+	  
+//////////////////////////////////////////////////	
+} 
+</script>
+</head>
+
+<body>
+<div class="hd" id="huan">
+  <ul class="hd_top">
+ <div class="lef"><img src="images/left.gif"/></div>
+ <div class="right"><img src="images/right.gif"/></div>
+   <a class="ai"></a>
+   <a class="ab"></a>
+    <li style="z-index:1;"><img src="images/img1.jpg" alt=""></li>
+    <li><img src="images/img2.jpg" alt=""></li>
+    <li><img src="images/img3.jpg" alt=""></li>
+    <li><img src="images/img4.jpg" alt=""></li>
+    <li><img src="images/img5.jpg" alt=""></li>
+    <li><img src="images/img6.jpg" alt=""></li>
+    <li><img src="images/img7.jpg" alt=""></li>  
+    <li><img src="images/img8.jpg" alt=""></li>
+    <li><img src="images/img9.jpg" alt=""></li>
+    <li><img src="images/img10.jpg" alt=""></li>  
+          
+  </ul>
+   <div class="hd_bottom">
+    <ul>
+     <li style="opacity:1; filter:alpha(opacity=100);"><img src="images/img1.jpg"/></li>
+     <li><img src="images/img2.jpg"/></li>
+     <li><img src="images/img3.jpg"/></li>
+     <li><img src="images/img4.jpg"/></li>
+     <li><img src="images/img5.jpg"/></li>
+     <li><img src="images/img6.jpg"/></li>
+     <li><img src="images/img7.jpg"/></li>
+     <li><img src="images/img8.jpg" alt=""></li>
+     <li><img src="images/img9.jpg" alt=""></li>
+     <li><img src="images/img10.jpg" alt=""></li>  
+    </ul>
+ </div>
+</div>
+</body>
+</html>

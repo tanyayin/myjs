@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>全选，反选，不选</title>
+<style>
+</style>
+<script>
+window.onload=function (){
+	var aDiv=document.getElementById('xuan1');
+	var aDiv2=document.getElementById('xuan2');
+	var aDiv3=document.getElementById('xuan3');
+	var bDiv=document.getElementById('div1');
+	var cDiv=bDiv.getElementsByTagName('input');
+	
+	 aDiv.onclick = function (){
+		 //cDiv[0].checked=true;
+		 for (var i=0; i<cDiv.length;i++){
+			 cDiv[i].checked=true;
+		 }
+	};
+	
+	 aDiv2.onclick = function (){
+		 //cDiv[0].checked=true;
+		 for (var i=0; i<cDiv.length;i++){
+			 cDiv[i].checked=false;
+		 }
+	};
+	
+		
+ aDiv3.onclick = function (){
+		 //cDiv[0].checked=true;
+		 for (var i=0; i<cDiv.length;i++){
+			 
+			 if (cDiv[i].checked==true){
+			  cDiv[i].checked=false;
+			 }else{
+				 cDiv[i].checked=true;
+			 };
+		 };
+	};
+	
+	
+};
+</script>
+
+
+
+</head>
+<body>
+<input type="button" value="全选" id="xuan1"/>
+<input type="button" value="不选" id="xuan2"/>
+<input type="button" value="反选选" id="xuan3"/>
+<div id="div1">
+<input type="checkbox" />
+<input type="checkbox"/>
+<input type="checkbox"/>
+<input type="checkbox"/>
+<input type="checkbox"/>
+<input type="checkbox"/>
+<input type="checkbox"/>
+<input type="checkbox"/>
+<input type="checkbox"/>
+<input type="checkbox"/>
+<input type="checkbox"/>
+<input type="checkbox"/>
+<input type="checkbox"/>
+<input type="checkbox"/>
+<input type="checkbox"/>
+<input type="checkbox"/>
+<input type="checkbox"/>
+<input type="checkbox"/>
+<input type="checkbox"/>
+<input type="checkbox"/>
+
+</div>
+
+
+
+
+
+</body>
+</html>

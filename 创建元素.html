@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function(){
+	var oBt=document.getElementById('id1');
+	var oUl=document.getElementById('id2');
+	var oTxt=document.getElementById('txt');
+	oBt.onclick=function(){
+		var oLi=document.createElement('li');
+		var aLi=oUl.getElementsByTagName('li');
+		oLi.innerHTML=oTxt.value;
+		//oUl.appendChild(oLi);
+		//oUl.insertBefore(oLi,aLi[0]);
+		if(aLi.length>0){
+		oUl.insertBefore(oLi,aLi[0]);//ie9以上添加
+		}else{
+			oUl.appendChild(oLi);
+		}
+	};
+};
+</script>
+</head>
+
+<body>
+<input type="text" id="txt">
+<input id="id1" type="button" value="添加">
+<ul id="id2"></ul>
+</body>
+</html>

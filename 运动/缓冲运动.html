@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+#div1 {width:100px;height:100px; position:absolute;top:50px;left:0px;background:#F0C;}
+</style>
+<script type="text/javascript">
+function yundong(){
+  var oDv=document.getElementById('div1');
+	setInterval(function(){
+	var speed=(300-oDv.offsetLeft)/10
+	speed=speed>0?Math.ceil(speed):Math.floor(speed);    //Math.ceil(speed)向上取整;   Math.floor(speed)向下取整
+     oDv.style.left=oDv.offsetLeft+speed+"px";
+	 document.title=oDv.offsetLeft+","+speed;
+		},30)};
+</script>
+</head>
+
+<body>
+<input type="button" value="运动" onclick="yundong()">
+<div id="div1"></div>
+</body>
+</html>

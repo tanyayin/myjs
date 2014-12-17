@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+</head>
+<style>
+div {width:200px; height:300px; background:#993; border:1px solid #000; border-color:}
+</style>
+<script>
+function getStyle(obj,name){
+	if(obj.currentStyle){
+		return obj.currentStyle[name];//name 应放在[]内因为他是个参数，否则将出错，找不到  兼容ie
+	}else{
+		return getComputedStyle(obj,false)[name];//false 是个垃圾，可以放任意东西，兼容火狐
+	}
+};
+window.onload=function(){
+	var oDiv=document.getElementById('div1');
+	//alert (oDiv.style.width)//选取行间样式
+	//alert (oDiv.currentStyle.width); //IE支持，火狐报错
+	//alert (getComputedStyle(oDiv,false).width);//火狐正常，ie8以下不兼容
+/*	if(oDiv.currentStyle){ //取分行间或其他兼容问题用if解决，靠谱
+		//IE
+		alert(oDiv.currentStyle.width);
+		
+		}else{
+			//FF
+		alert(	getComputedStyle(oDiv,false).width);
+			
+			};*/
+	
+	alert(getStyle(oDiv,'backgroundColor'));//复合样式取不出来，例如：background，border等，需要明确，例如backgroundColor字母c要大写
+
+};
+
+</script>
+
+
+<body>
+<div id="div1" style=""></div>
+</body>
+</html>

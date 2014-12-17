@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script src="js/move2.js"></script>
+<style type="text/css">
+#div {width:100px;height:100px;opacity:0.5; filter:alpha(opacity:50);background:#F00;}
+
+</style>
+<script type="text/javascript">
+window.onload=function(){
+	var oDiv=document.getElementById('div');
+	var oBt=document.getElementById('input');
+	oBt.onclick=function(){
+		startMove(oDiv,{width: 300, height: 300,opacity: 100},function(){
+			alert('a')
+			})
+		}
+	}
+</script>
+</head>
+
+<body>
+<input type="button" id="input" value="点击">
+<div id="div"></div>
+</body>
+</html>

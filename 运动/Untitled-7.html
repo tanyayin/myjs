@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+#wk {width:100%;height:200px; position:relative;}
+#div1 {width:100px;height:100px;background:#090; position:absolute; left:50px; top:50px;}
+</style>
+
+<script>
+window.onload=function(){
+	var oDv=document.getElementById('div1');
+	var oWk=document.getElementById('wk');
+	setInterval(function(){
+		if(oDv.offsetLeft>oWk.offsetWidth){
+			oDv.style.left='0';
+		}
+		oDv.style.left=oDv.offsetLeft+10+'px';
+		},30)
+};
+</script>
+</head>
+
+<body>
+<div id="wk">
+<div id="div1"></div>
+</div>
+</body>
+</html>

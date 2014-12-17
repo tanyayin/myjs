@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+#div1{width:200px;height:200px;background:#F00;filter:alpha(opacity:30);opacity:0.3;}
+</style>
+<script>
+window.onload=function(){
+	var oDv=document.getElementById('div1');
+	oDv.onmouseover=function(){
+		startMove(100);
+	};
+	oDv.onmouseout=function(){
+		startMove(30);
+	};
+};
+var alpha=30;
+var timer=null;
+function startMove(iTarget){
+	var oDv=document.getElementById('div1');
+		clearInterval(timer);
+	 timer=setInterval(function(){
+		 var speed=0
+		 if(alpha<iTarget){
+			speed=10;
+		 }else{
+			speed=-10; 
+		 };
+		 if(alpha==iTarget){
+		  clearInterval(timer);
+		 }else{
+			 alpha+=speed;
+			 oDv.style.filter='alpha(opacity:'+alpha+')';
+			 oDv.style.opacity=alpha/100;
+
+		 };
+	 },30);
+
+};
+</script>
+</head>
+
+<body>
+<div id="div1"></div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+*{margin:0;padding:0;}
+#div1 {width:800px;height:410px;border:1px solid #ccc;position:relative;margin:20px auto;overflow:hidden;}
+.div2 {width:700px;height:400px;float:left;position:absolute;}
+.div2 h3 {width:20px;height:400px;float:left;border:1px solid #ccc;float:left;background:#fff;}
+.div2 p {width:678px;background:#e1e1e1;float:left;height:400px;}
+#id1 {left:0;top:0;}
+#id2 {left:20px;top:0; z-index:100;}
+#id3 {left:40px;top:0;z-index:200;}
+#id4 {left:60px;top:0;z-index:400;}
+#id5 {left:80px;top:0;z-index:500;}
+#id6 {left:100px;top:0;z-index:600;}
+</style>
+
+<script>
+
+window.onload=function(){
+	var oDv=document.getElementById("id1");
+	var aId=oDv.getElementsByTagName('div');
+	var aHs=oDv.getElementsByTagName('h3');
+     for(var i=1;i<=aHs.length;i++){
+	//	aId[i].index=i;
+	aHs[i].onmouseover=function(){
+		//for(var i=1;i<=aId.length;i++){
+			startMove(this,680)
+		//	}
+		}
+	
+	}
+	}
+	
+var timer=null;
+function startMove(obj,iTarget){
+	clearInterval(timer);
+	timer=setInterval(function(){
+		var speed=(iTarget-obj.offsetLeft)/10;
+	   speed=speed>0?Math.ceil(speed):Math.floor(speed);
+		if(obj.offsetLeft==iTarget){
+			clearInterval(timer);
+			}else{
+				obj.style.left=obj.offsetLeft+speed+"px";
+				}
+		},30)
+		
+	}
+	
+</script>
+</head>
+
+<body>
+<div id="div1">
+ <div class="div2" id="id1">
+   <h3>1</h3>
+   <p>1111111111111111</p>
+ </div>
+<div class="div2" id="id2">
+   <h3>2</h3>
+   <p>2222222222222222222222</p>
+ </div>
+
+ <div class="div2" id="id3">
+   <h3>3</h3>
+   <p>3333333333333333333333</p>
+ </div>
+  <div class="div2" id="id4">
+   <h3>4</h3>
+   <p>44444444444444444444444444444</p>
+ </div>
+ <div class="div2" id="id5">
+   <h3>5</h3>
+   <p>555555555555555555555555555</p>
+ </div>
+ <div class="div2" id="id6">
+   <h3>6</h3>
+   <p>666666666666666666</p>
+ </div>
+
+</div>
+</body>
+</html>

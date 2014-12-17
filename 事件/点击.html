@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function(){
+	document.onclick=function(ev){
+		//IE
+		//alert(event.clientX+','+event.clientY)  //鼠标的横纵坐标，不兼容火狐
+		//FF
+		//alert(ev.clientX+','+ev.clientY) ;
+		
+		var oEvent=ev ||event;    //兼容
+		alert(oEvent.clientX+','+oEvent.clientY);
+		}
+	}
+</script>
+</head>
+
+<body>
+
+</body>
+</html>

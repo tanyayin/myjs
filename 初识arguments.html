@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+<script>
+//argumets  可变参，参数的个数可变，参数数组
+  function sum(){
+	  var result=0;
+	  for(var i=0;i<arguments.length;i++){
+		  result+=arguments[i]; //把每个数组的值相加
+		  }
+		  return result;
+	  }
+	 alert(sum(2,5,3))//输出所有数值的和
+</script>
+</body>
+</html>

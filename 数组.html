@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+</head>
+<style>
+div {width:200px; height:300px; background:#993; border:1px solid #000; border-color:}
+</style>
+<script>
+//var arr=[22,23,56,46,31,12,96]
+//arr.push(5);                                          //往后数组末尾添加元素
+//arr.pop();                                            //从数组的尾部删除一个元素
+//arr.shift();                                          //从数组的头部删除一个元素
+//arr.unshift('55');                                    //从数组的头部添加一夜元素
+//arr.splice(3,2);                                      //splice(起点，长度)从那个起点起删除多个元素
+//arr.splice(2,1,'a','q',0);                            //splice(起点，长度，元素...)从起点开始先删除几个元素，然后再从起点添加元素
+//alert(arr)
+
+
+//var a=[0, 514, 365];
+//var b=['1', 'b', 1];
+//alert(a.concat(b));                                    //concat 链接数组
+//alert(a.join('~'));                                     //添加链接数组的分隔符等等
+
+//var arr=['dfg','raet','tre','uu','reay','tea','ea'];     //字母排序
+//arr.sort();
+//alert(arr);
+
+var arrd=[22,23,56,46,31,12,96,120,152]
+//arrd.sort();
+arrd.sort(function (a1,a2){
+	
+	return a1-a2;
+/*	if(a1<a2){
+		return -1;
+	}
+	else if(a1>a2){
+		return 1;
+	}
+	else{
+		return 0;
+	};*/
+	});
+alert (arrd);
+
+
+</script>
+
+
+<body>
+<div id="div1" style=""></div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+  #div1{width:200px;height:200px;background:#00F; position:absolute;}
+</style>
+<script type="text/javascript">
+function getPos(ev){
+	var scrollTop=document.documentElement.scrollTop||document.body.scrollTop; //可视区距离body/document的高度
+	var scrollLeft=document.documentElement.scrollLeft||document.body.scrollLeft; //可视区距离body/document的宽度
+	return {x: ev.clientX+scrollLeft,y: ev.clientY+scrollTop};//用josn的方式传递
+	}  //封装
+document.onmousemove=function(ev){
+	var oEvent=ev||event;
+	var oDiv=document.getElementById('div1');
+	//var scrollTop=document.documentElement.scrollTop||document.body.scrollTop; //可视区距离body/document的高度
+	var pos=getPos(oEvent);//引用封装后的函数
+	oDiv.style.left=pos.x+'px';   
+	oDiv.style.top=pos.y+'px';//鼠标位置距离可视区的高度+可视区距离body/document的高度
+	
+	}
+</script>
+</head>
+
+<body style="height:3000px;">
+<div id="div1"></div>
+</body>
+</html>

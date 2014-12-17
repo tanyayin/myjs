@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta harset="utf-8" />
+<title>隔行变色</title>
+</head>
+<style>
+li {width:300px;margin:5px; border:1px solid #CCC;}
+</style>
+<script>
+window.onload=function(){
+	var aLi=document.getElementsByTagName('li');
+	for(var i=0;i<aLi.length;i++){
+		if(i%2==0){
+			aLi[i].style.background='#F00';
+		}else {
+			aLi[i].style.background='#30F';
+		};
+		
+	};
+	
+};
+</script>
+
+
+<body>
+<ul>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+</body>
+</html>
